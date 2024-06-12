@@ -6,7 +6,7 @@ export const CharactersPage = () => {
 
   const {
     state: { characters },
-    dispatchFn: { getCharacters }
+    dispatchFn: { getCharacters, deleteCharacter }
   } = useContainer()
 
   useEffect(() => {
@@ -19,7 +19,7 @@ export const CharactersPage = () => {
 
       <div className={'header-border'}></div>
 
-      <CharactersList characters={characters} />
+      <CharactersList characters={characters} deleteCharacter={deleteCharacter} />
     </>
   )
 }

@@ -4,9 +4,10 @@ import styles from './CharactersList.module.css'
 
 interface CharacterListProps {
   characters: ICharacterstate[];
+  deleteCharacter: (id: number) => void;
 }
 
-export const CharactersList = ({ characters }: CharacterListProps) => {
+export const CharactersList = ({ characters, deleteCharacter }: CharacterListProps) => {
   console.log(characters)
   return (
     <main className={styles['main-content']}>
@@ -15,6 +16,7 @@ export const CharactersList = ({ characters }: CharacterListProps) => {
           <CharacterCard
             key={character.id}
             character={character}
+            deleteCharacter={deleteCharacter}
           />
         ))
       }

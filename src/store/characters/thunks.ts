@@ -1,7 +1,7 @@
 import { AnyAction, ThunkDispatch } from "@reduxjs/toolkit"
 import { RootState, store } from "../store"
 import { api } from "../../api"
-import { getCharacterByID, getCharacters, onLoading, updateCharacter } from "./charactersSlice"
+import { deleteCharacter, getCharacterByID, getCharacters, onLoading, updateCharacter } from "./charactersSlice"
 import { ICharacterstate } from "../../interfaces/character.interface"
 
 const { characters } = api();
@@ -64,3 +64,14 @@ export const startUpdateCharacter = (dataValues: ICharacterstate) => {
 
   }
 }
+
+export const startDeleteCharacter = (id: number) => {
+  return async (dispatch: ThunkDispatch<RootState, undefined, AnyAction>) => {
+    dispatch( deleteCharacter(id) );
+    
+    const { characters } = store.getState().characters
+    localStorage.setItem('Characters', JSON.stringify(characters))
+
+  }
+}
+

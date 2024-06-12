@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 import { useAppDispatch, useAppSelector } from "../../../hooks/useReduxFunctions"
-import { startGetCharacters } from "../../../store/characters/thunks";
+import { startDeleteCharacter, startGetCharacters } from "../../../store/characters/thunks";
 
 export const useContainer = () => {
 
@@ -14,8 +14,13 @@ export const useContainer = () => {
     dispatch(startGetCharacters())
   }, [dispatch])
 
+  const deleteCharacter = useCallback((id: number) => {
+    dispatch( startDeleteCharacter(id) )
+  }, [dispatch])
+
   const dispatchFn = {
-    getCharacters
+    getCharacters,
+    deleteCharacter
   }
 
   return {

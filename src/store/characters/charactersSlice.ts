@@ -29,10 +29,13 @@ export const charactersSlice = createSlice({
         return character
       })
     },
+    deleteCharacter: (state, {payload}: PayloadAction<number>) => {
+      state.characters = state.characters.filter(character => character.id !== payload)
+    },
     onLoading: (state) => {
       state.isLoading = true
     }
   }
 })
 
-export const { getCharacters, onLoading, updateCharacter, getCharacterByID } = charactersSlice.actions
+export const { getCharacters, onLoading, updateCharacter, getCharacterByID, deleteCharacter } = charactersSlice.actions
