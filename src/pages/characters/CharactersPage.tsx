@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import styles from './CharactersPage.module.css'
+import { CharacterCard } from '../../components'
 
 export const CharactersPage = () => {
   return (
@@ -13,6 +14,12 @@ export const CharactersPage = () => {
       </header>
 
       <div className={styles['header-border']}></div>
+
+      <main className={styles['main-content']}>
+        <CharacterCard />
+        <CharacterCard />
+        <CharacterCard />
+      </main>
     </>
   )
 }
