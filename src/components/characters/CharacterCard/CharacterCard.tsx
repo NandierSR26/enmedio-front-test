@@ -1,8 +1,8 @@
-import { Character } from '../../../interfaces/character.interface'
+import { Character, ICharacterstate } from '../../../interfaces/character.interface'
 import styles from './Card.module.css'
 
 interface CharacterCardProps {
-  character: Character;
+  character: ICharacterstate;
 }
 
 export const CharacterCard = ({ character }: CharacterCardProps) => {

@@ -1,3 +1,9 @@
+export interface ICharacterstate {
+  id: number;
+  name: string;
+  images: string[] | string;
+}
+
 export interface Characters {
   characters:  Character[];
   currentPage: number;

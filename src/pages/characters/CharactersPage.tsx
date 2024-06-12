@@ -1,6 +1,5 @@
-import { Link } from 'react-router-dom'
 import styles from './CharactersPage.module.css'
-import { CharacterCard, CharactersList } from '../../components'
+import { CharactersList, Header } from '../../components'
 import { useContainer } from './container'
 import { useEffect } from 'react'
 
@@ -17,13 +16,7 @@ export const CharactersPage = () => {
 
   return (
     <>
-      <header className={styles.header}>
-        <figure className={styles.logo}>
-          <img src="/assets/naruto-logo.png" alt="" />
-        </figure>
-
-        <Link to={'/favorites'} className={styles.favorites}>Favoritos</Link>
-      </header>
+      <Header />
 
       <div className={styles['header-border']}></div>
 

@@ -1,9 +1,9 @@
-import { Character } from '../../../interfaces/character.interface'
+import { ICharacterstate } from '../../../interfaces/character.interface'
 import { CharacterCard } from '../CharacterCard'
 import styles from './CharactersList.module.css'
 
 interface CharacterListProps {
-  characters: Character[];
+  characters: ICharacterstate[];
 }
 
 export const CharactersList = ({ characters }: CharacterListProps) => {

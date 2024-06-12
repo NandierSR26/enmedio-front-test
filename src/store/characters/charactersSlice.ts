@@ -1,9 +1,9 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { Character } from "../../interfaces/character.interface";
+import { Character, ICharacterstate } from "../../interfaces/character.interface";
 
 interface InitialState {
   isLoading: boolean
-  characters: Character[];
+  characters: ICharacterstate[];
 }
 
 export const charactersSlice = createSlice({
@@ -13,9 +13,15 @@ export const charactersSlice = createSlice({
     characters: [],
   } as InitialState,
   reducers: {
-    getCharacters: (state, { payload }:PayloadAction<Character[]>) => {
+    getCharacters: (state, { payload }:PayloadAction<ICharacterstate[]>) => {
       state.characters = payload
       state.isLoading = false
+    },
+    updateCharacter: (state, {payload}: PayloadAction<ICharacterstate>) => {
+      state.characters = state.characters.map(character => {
+        if(character.id === payload.id) return payload
+        return character
+      })
     },
     onLoading: (state) => {
       state.isLoading = true
@@ -23,4 +29,4 @@ export const charactersSlice = createSlice({
   }
 })
 
-export const { getCharacters, onLoading } = charactersSlice.actions
+export const { getCharacters, onLoading, updateCharacter } = charactersSlice.actions
