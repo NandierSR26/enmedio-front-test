@@ -26,10 +26,9 @@ export const AppRouter = () => {
 
       <Route element={<PublicRoutes />}>
         <Route path="/login" element={<LoginPage />} />
-        <Route path='*' element={<Navigate to={'/login'} />} />
+        <Route path='/' element={<Navigate to={'/login'} />} />
       </Route>
 
-      <Route path='*' element={<Navigate to={'/login'} />} />
 
     </Routes>
   )

@@ -16,7 +16,7 @@
   height: 100%;
 }
 
-.favorites {
+.logout {
   text-decoration: none;
   color: #FF210F;
   padding: 10px 20px;
@@ -24,10 +24,11 @@
   border-radius: 12px;
   font-size: 15px;
   font-weight: 700;
+  cursor: pointer;
   transition: all .3s;
 }
 
-.favorites:hover {
+.logout:hover {
   background-color: #FF210F;
   color: #FFF;
 }
