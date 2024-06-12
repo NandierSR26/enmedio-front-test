@@ -1,0 +1,8 @@
+.main-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+  padding: 50px 0;
+  max-width: 1400px;
+  margin: 0 auto;
+}

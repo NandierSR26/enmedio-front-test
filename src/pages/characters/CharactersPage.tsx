@@ -1,8 +1,20 @@
 import { Link } from 'react-router-dom'
 import styles from './CharactersPage.module.css'
-import { CharacterCard } from '../../components'
+import { CharacterCard, CharactersList } from '../../components'
+import { useContainer } from './container'
+import { useEffect } from 'react'
 
 export const CharactersPage = () => {
+
+  const {
+    state: { characters },
+    dispatchFn: { getCharacters }
+  } = useContainer()
+
+  useEffect(() => {
+    getCharacters();
+  }, [])
+
   return (
     <>
       <header className={styles.header}>
@@ -15,11 +27,7 @@ export const CharactersPage = () => {
 
       <div className={styles['header-border']}></div>
 
-      <main className={styles['main-content']}>
-        <CharacterCard />
-        <CharacterCard />
-        <CharacterCard />
-      </main>
+      <CharactersList characters={characters} />
     </>
   )
 }
