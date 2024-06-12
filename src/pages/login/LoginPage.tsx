@@ -1,3 +1,4 @@
+import { Input } from '../../components'
 import styles from './LoginPage.module.css'
 
 export const LoginPage = () => {
@@ -7,21 +8,8 @@ export const LoginPage = () => {
       <form className={styles['login-form']}>
         <h1>Iniciar sesión</h1>
 
-        <div>
-          <label htmlFor="usuario">Usuario</label>
-          <input
-            type="text"
-            name="usuario"
-          />
-        </div>
-
-        <div>
-          <label htmlFor="contraseña">Contraseña</label>
-          <input
-            type="text"
-            name="contraseña"
-          />
-        </div>
+        <Input label={'Usuario'} name={'usuario'} type={'text'} />
+        <Input label={'Contraseña'} name={'contraseña'} type={'password'} />
 
         <button
           type="submit"
