@@ -1,4 +1,5 @@
 import axios from "axios"
+import Characters from './characters'
 
 export const api = () => {
 
@@ -10,5 +11,11 @@ export const api = () => {
     },
     timeout: 45000
   })
+
+  const characters = Characters(axiosConfig)
+
+  return {
+    characters
+  }
 
 }
