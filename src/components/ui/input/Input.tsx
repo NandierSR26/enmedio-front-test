@@ -4,10 +4,13 @@ interface InputProps {
   label: string;
   name: string;
   type: string;
-  errors?: string;
+  errors?: any;
+  onChange?: any;
+  values?: any;
+  touched?: any;
 }
 
-export const Input = ({ label, name, type, errors }: InputProps) => {
+export const Input = ({ label, name, type, errors, onChange, values, touched }: InputProps) => {
   return (
     <div className={styles['input-container']}>
       <label htmlFor={name}>{label}</label>
@@ -15,9 +18,11 @@ export const Input = ({ label, name, type, errors }: InputProps) => {
       <input
         type={type}
         name={name}
+        onChange={onChange}
+        value={values}
       />
 
-      { errors && <span>{errors}</span> }
+      { (errors && touched) && <span>{errors}</span> }
     </div>
   )
 }

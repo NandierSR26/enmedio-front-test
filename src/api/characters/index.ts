@@ -1,8 +1,9 @@
 import { AxiosInstance } from "axios";
-import { Characters } from "../../interfaces/character.interface";
+import { Character, Characters } from "../../interfaces/character.interface";
 
 export default function Actions(api: AxiosInstance) {
   return {
     getCharactersList: () => api.get<Characters>('/characters'),
+    getCharacterById: (id: number) => api.get<Character>(`/characters/${id}`),
   }
 }

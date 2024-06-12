@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import { Character, ICharacterstate } from '../../../interfaces/character.interface'
 import styles from './Card.module.css'
 
@@ -6,6 +7,9 @@ interface CharacterCardProps {
 }
 
 export const CharacterCard = ({ character }: CharacterCardProps) => {
+
+  const navigate = useNavigate()
+
   return (
     <div className={styles['character-card']}>
       <figure className={styles['card-image']}>
@@ -16,7 +20,7 @@ export const CharacterCard = ({ character }: CharacterCardProps) => {
         <h4>{ character.name }</h4>
 
         <div className={styles.actions}>
-          <button>Editar</button>
+          <button onClick={() => navigate(`/character/${character.id}`)} >Editar</button>
           <button>Eliminar</button>
         </div>
       </div>

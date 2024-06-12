@@ -1,13 +1,14 @@
 import { AnyAction, ThunkDispatch } from "@reduxjs/toolkit"
 import { RootState, store } from "../store"
 import { api } from "../../api"
-import { getCharacters, onLoading, updateCharacter } from "./charactersSlice"
+import { getCharacterByID, getCharacters, onLoading, updateCharacter } from "./charactersSlice"
 import { ICharacterstate } from "../../interfaces/character.interface"
+
+const { characters } = api();
 
 export const startGetCharacters = () => {
   return async (dispatch: ThunkDispatch<RootState, undefined, AnyAction>) => {
 
-    const { characters } = api();
 
     try {
       dispatch( onLoading() );
@@ -30,6 +31,26 @@ export const startGetCharacters = () => {
 
     } catch (error) {
       console.log(error);
+    }
+  }
+}
+
+export const startGetCharacterByID = (id: number) => {
+  return async (dispatch: ThunkDispatch<RootState, undefined, AnyAction>) => {
+    try {
+      dispatch( onLoading() )
+      const {data} = await characters.getCharacterById(id);
+
+      const characterData = {
+        id: data.id,
+        name: data.name,
+        images: data.images
+      }
+
+      dispatch( getCharacterByID(characterData) )
+    } catch (error) {
+      console.log(error);
+      
     }
   }
 }
