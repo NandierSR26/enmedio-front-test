@@ -1,7 +1,11 @@
 import React from 'react'
+import { Header } from '../../components'
 
 export const EditCharacter = () => {
   return (
-    <div>EditCharacter</div>
+    <>
+      <Header />
+      <div className="header-border"></div>
+    </>
   )
 }

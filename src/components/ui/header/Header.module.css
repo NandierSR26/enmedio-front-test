@@ -15,3 +15,19 @@
   width: 100%;
   height: 100%;
 }
+
+.favorites {
+  text-decoration: none;
+  color: #FF210F;
+  padding: 10px 20px;
+  border: 2px solid #FF210F;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 700;
+  transition: all .3s;
+}
+
+.favorites:hover {
+  background-color: #FF210F;
+  color: #FFF;
+}

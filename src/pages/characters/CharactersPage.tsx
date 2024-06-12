@@ -1,4 +1,3 @@
-import styles from './CharactersPage.module.css'
 import { CharactersList, Header } from '../../components'
 import { useContainer } from './container'
 import { useEffect } from 'react'
@@ -18,7 +17,7 @@ export const CharactersPage = () => {
     <>
       <Header />
 
-      <div className={styles['header-border']}></div>
+      <div className={'header-border'}></div>
 
       <CharactersList characters={characters} />
     </>
