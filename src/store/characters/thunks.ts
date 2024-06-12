@@ -11,23 +11,27 @@ export const startGetCharacters = () => {
 
 
     try {
-      dispatch( onLoading() );
-      const prevData = JSON.parse(localStorage.getItem('Characters') || '')
-      if(prevData.length > 0) {
-        dispatch( getCharacters(prevData) );
-        return;
+      dispatch(onLoading());
+
+      if (!localStorage.getItem('Characters')) {
+        const { data } = await characters.getCharactersList();
+
+        const characterData: ICharacterstate[] = data.characters.map(character => ({
+          id: character.id,
+          name: character.name,
+          images: character.images
+        }))
+
+        localStorage.setItem('Characters', JSON.stringify(characterData));
+        dispatch(getCharacters(characterData));
+        return
+
       }
 
-      const { data } = await characters.getCharactersList();
+      const prevData = JSON.parse(localStorage.getItem('Characters') || '')
+      console.log({ prevData })
+      dispatch(getCharacters(prevData));
 
-      const characterData: ICharacterstate[] = data.characters.map(character => ({
-        id: character.id,
-        name: character.name,
-        images: character.images
-      }))
-
-      localStorage.setItem('Characters', JSON.stringify(characterData));
-      dispatch( getCharacters(characterData) );
 
     } catch (error) {
       console.log(error);
@@ -38,8 +42,8 @@ export const startGetCharacters = () => {
 export const startGetCharacterByID = (id: number) => {
   return async (dispatch: ThunkDispatch<RootState, undefined, AnyAction>) => {
     try {
-      dispatch( onLoading() )
-      const {data} = await characters.getCharacterById(id);
+      dispatch(onLoading())
+      const { data } = await characters.getCharacterById(id);
 
       const characterData = {
         id: data.id,
@@ -47,18 +51,18 @@ export const startGetCharacterByID = (id: number) => {
         images: data.images
       }
 
-      dispatch( getCharacterByID(characterData) )
+      dispatch(getCharacterByID(characterData))
     } catch (error) {
       console.log(error);
-      
+
     }
   }
 }
 
 export const startUpdateCharacter = (dataValues: ICharacterstate) => {
   return async (dispatch: ThunkDispatch<RootState, undefined, AnyAction>) => {
-    dispatch( updateCharacter(dataValues) );
-    
+    dispatch(updateCharacter(dataValues));
+
     const { characters } = store.getState().characters
     localStorage.setItem('Characters', JSON.stringify(characters))
 
@@ -67,8 +71,8 @@ export const startUpdateCharacter = (dataValues: ICharacterstate) => {
 
 export const startDeleteCharacter = (id: number) => {
   return async (dispatch: ThunkDispatch<RootState, undefined, AnyAction>) => {
-    dispatch( deleteCharacter(id) );
-    
+    dispatch(deleteCharacter(id));
+
     const { characters } = store.getState().characters
     localStorage.setItem('Characters', JSON.stringify(characters))
 

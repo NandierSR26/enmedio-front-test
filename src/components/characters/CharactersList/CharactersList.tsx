@@ -8,7 +8,7 @@ interface CharacterListProps {
 }
 
 export const CharactersList = ({ characters, deleteCharacter }: CharacterListProps) => {
-  console.log(characters)
+  
   return (
     <main className={styles['main-content']}>
       {

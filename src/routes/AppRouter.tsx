@@ -20,12 +20,16 @@ export const AppRouter = () => {
       <Route element={<PrivateRoutes />}>
         <Route path="/characters" element={<CharactersPage />} />
         <Route path="/character/:id" element={<EditCharacter />} />
+        <Route path='*' element={<Navigate to={'/characters'} />} />
+
       </Route>
 
       <Route element={<PublicRoutes />}>
         <Route path="/login" element={<LoginPage />} />
         <Route path='*' element={<Navigate to={'/login'} />} />
       </Route>
+
+      <Route path='*' element={<Navigate to={'/login'} />} />
 
     </Routes>
   )

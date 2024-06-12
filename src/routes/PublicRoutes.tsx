@@ -6,7 +6,7 @@ export const PublicRoutes = () => {
     const { username, status } = useAppSelector( state => state.auth )
 
     if( status === 'authenticated' ){
-        return <Navigate to={'/home'} />
+        return <Navigate to={'/characters'} />
     }
 
     return <Outlet />
