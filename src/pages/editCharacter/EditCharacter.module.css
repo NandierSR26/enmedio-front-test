@@ -2,6 +2,7 @@
   max-width: 1400px;
   margin: 0 auto;
   margin-top: 50px;
+  padding: 20px;
 }
 
 .main-content > section{
@@ -30,4 +31,10 @@
   font-weight: 700;
   font-size: 18px;
   cursor: pointer;
+}
+
+@media screen and (width < 450px) {
+  .main-content > section {
+    flex-direction: column;
+  }
 }
