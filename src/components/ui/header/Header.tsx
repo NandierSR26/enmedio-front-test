@@ -1,6 +1,7 @@
 import { useAppDispatch } from '../../../hooks/useReduxFunctions'
 import { startLogout } from '../../../store/auth/thunks';
 import styles from './Header.module.css'
+import logo from '../../../assets/naruto-logo.png'
 
 export const Header = () => {
 
@@ -9,7 +10,7 @@ export const Header = () => {
   return (
     <header className={styles.header}>
       <figure className={styles.logo}>
-        <img src="/assets/naruto-logo.png" alt="" />
+        <img src={logo} alt="logo" />
       </figure>
 
       <button

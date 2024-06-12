@@ -9,7 +9,7 @@
       rgba(98, 98, 97, 0.5) 67.58%,
       rgba(42, 42, 41, 0.6) 91.61%,
       rgba(29, 29, 27, 0.7) 100%),
-    url('assets/naruto-characters.jpg');
+    url('../../assets/naruto-characters.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
