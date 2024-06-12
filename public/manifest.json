@@ -1,0 +1,52 @@
+{
+    "short_name": "Enmedio-app",
+    "name": "enmedio-app",
+    "icons": [
+        {
+            "src": "vite.svg",
+            "sizes": "64x64 32x32 24x24 16x16",
+            "type": "image/x-icon"
+        },
+        {
+            "src": "vite.svg",
+            "type": "image/png",
+            "sizes": "72x72"
+        },
+        {
+            "src": "vite.svg",
+            "type": "image/png",
+            "sizes": "96x96"
+        },
+        {
+            "src": "vite.svg",
+            "type": "image/png",
+            "sizes": "128x128"
+        },
+        {
+            "src": "vite.svg",
+            "type": "image/png",
+            "sizes": "144x144"
+        },
+        {
+            "src": "vite.svg",
+            "type": "image/png",
+            "sizes": "192x192",
+            "purpose": "maskable"
+        },
+        {
+            "src": "vite.svg",
+            "type": "image/png",
+            "sizes": "384x384"
+        },
+        {
+            "src": "vite.svg",
+            "type": "image/png",
+            "sizes": "512x512"
+        }
+    ],
+    "start_url": "/login",
+    "orientation": "any",
+    "display": "standalone",
+    "theme_color": "#FFFFFF",
+    "background_color": "#FF210F"
+}
